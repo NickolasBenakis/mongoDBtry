@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-
+// ftiaxnw to collection Users
 var Users = mongoose.model('Users', {
     email: {
         type: String,

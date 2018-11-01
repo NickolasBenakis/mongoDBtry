@@ -1,7 +1,7 @@
 var mongoose = require('mongoose');
 
 
-
+// ftiaxnw to collection Contacts
 var Contacts = mongoose.model('Contacts', {
     name: {
         type: String,
