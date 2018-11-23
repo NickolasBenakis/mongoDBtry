@@ -12,39 +12,39 @@ var app = express();
 const port  = process.env.PORT || 3000;
 
 
-//ksekinaei to middleware
-app.use(bodyParser.json());
+// //ksekinaei to middleware
+// app.use(bodyParser.json());
 
-//postarw to path kai to response stin porta
-app.post('/users', (req, res) => {
-    // var contact = new Contacts({
-    //     name: req.body.name,
-    //     age: req.body.age,
-    //     phone: req.body.phone
-    // });
-    // contact.save().then((doc) => {
-    //     res.send(doc);
-    // }, (err) => {
-    //     res.status(400).send(err);
-    // });
-    var user = new Users({
-        email: req.body.email
-    });
-    user.save().then((doc) => {
-        res.send(doc);
-    }, (err) => {
-        res.status(400).send(err);
-        // res.status(400).send((results[0].id).toString());
-    });
+// //postarw to path kai to response stin porta
+// app.post('/users', (req, res) => {
+//     // var contact = new Contacts({
+//     //     name: req.body.name,
+//     //     age: req.body.age,
+//     //     phone: req.body.phone
+//     // });
+//     // contact.save().then((doc) => {
+//     //     res.send(doc);
+//     // }, (err) => {
+//     //     res.status(400).send(err);
+//     // });
+//     var user = new Users({
+//         email: req.body.email
+//     });
+//     user.save().then((doc) => {
+//         res.send(doc);
+//     }, (err) => {
+//         res.status(400).send(err);
+//         // res.status(400).send((results[0].id).toString());
+//     });
 
-});
-app.get('/users', (req, res) => {
-    Users.find().then((users) => {
-        res.send({ users })
-    }, (err) => {
-        res.status(400).send(err);
-    })
-});
+// });
+// app.get('/users', (req, res) => {
+//     Users.find().then((users) => {
+//         res.send({ users })
+//     }, (err) => {
+//         res.status(400).send(err);
+//     })
+// });
 
 
 //anoigw tin porta 
