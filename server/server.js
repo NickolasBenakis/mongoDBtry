@@ -8,6 +8,9 @@ var { Contacts } = require('./models/contacts.js');
 var { Users } = require('./models/users.js');
 
 var app = express();
+// set up gia Heroku
+const port  = process.env.PORT || 3000;
+
 
 //ksekinaei to middleware
 app.use(bodyParser.json());
@@ -44,9 +47,9 @@ app.get('/users', (req, res) => {
 });
 
 
-//anoigw tin porta
-app.listen(3000, () => {
-    console.log('Started on port 3000');
+//anoigw tin porta 
+app.listen(port, () => {
+    console.log(`Start at port ${port}`);
 });
 
 module.exports = { app };
@@ -97,3 +100,8 @@ module.exports = { app };
 // }, (e) => {
 //     console.log("Unable to save user", er);
 // })
+
+
+
+// ICE- server below
+
