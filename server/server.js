@@ -6,17 +6,34 @@ var bodyParser = require('body-parser');
 var { mongoose } = require('./db/mongoose.js');
 var { Contacts } = require('./models/contacts.js');
 var { Users } = require('./models/users.js');
-
+var { photos } = require('./models/photos.model.js');
 var app = express();
 // set up gia Heroku
-const port  = process.env.PORT || 3000;
+const port = process.env.PORT || 3000;
 
+//Ksekinaei to middleware gia Photos
+
+app.use(bodyParser.json());
+
+app.post('/photos', (req, res) => {
+    var photo = new photos({
+        id: req.body.id,
+        size: req.body.size
+    });
+    photo.save().then((doc) => {
+        res.send(doc);
+    }, (err) => {
+        res.status(400).send(err);
+    });
+
+
+});
 
 // //ksekinaei to middleware
-// app.use(bodyParser.json());
+//app.use(bodyParser.json());
 
-// //postarw to path kai to response stin porta
-// app.post('/users', (req, res) => {
+//postarw to path kai to response stin porta
+//app.post('/users', (req, res) => {
 //     // var contact = new Contacts({
 //     //     name: req.body.name,
 //     //     age: req.body.age,
